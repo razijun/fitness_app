@@ -1,15 +1,17 @@
 import pkg from 'pg'
 const {Client} =  pkg
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+import { client } from './initDb.js';
+
 
 dotenv.config();
 
 console.log(process.env.DATABASE_URL)
 
-const client = new Client({
-    connectionString:process.env.DATABASE_URL,
-    ssl:{rejectUnauthorized:false}
-})
+// const client = new Client({
+//     connectionString:process.env.DATABASE_URL,
+//     ssl:{rejectUnauthorized:false}
+// })
 
 export const getAllExercises = async()=>{
     const text = `SELECT * FROM exercises;`;

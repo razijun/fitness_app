@@ -6,7 +6,7 @@ dotenv.config();
 
 console.log(process.env.DATABASE_URL)
 
-const client = new Client({
+export const client = new Client({
     connectionString:process.env.DATABASE_URL,
     ssl:{rejectUnauthorized:false}
 })
@@ -14,11 +14,12 @@ const client = new Client({
 export const initDB= async()=>{
 client.connect();
 
+// await client.query('DROP * FROM information_schema.tables;')
+// await client.query('CREATE SCHEMA public')
 // exercises table
-await client.query(`DROP TABLE IF EXISTS exercises;`)
-
+await client.query(`DROP TABLE IF EXISTS exercises CASCADE;`)
 await client.query(`CREATE TABLE exercises (
-  id SERIAL PRIMARY KEY,
+  exercise_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   area VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL
@@ -32,44 +33,81 @@ VALUES
 ('Bench', 'Chest', 'explanation about the exercise')
 ;`)
 
+// workouts table
+await client.query(`DROP TABLE IF EXISTS workouts CASCADE;`)
 
-
-// programs table
-await client.query(`DROP TABLE IF EXISTS programs;`)
-
-await client.query(`CREATE TABLE programs (
-  id SERIAL PRIMARY KEY,
+await client.query(`CREATE TABLE workouts (
+  workout_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  description VARCHAR(255) NOT NULL
+  description VARCHAR(255) NOT NULL,
+  exercise_id INTEGER,
+
+  CONSTRAINT exercise_id
+  FOREIGN KEY (exercise_id) 
+  REFERENCES exerciseS(exercise_id)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
 );`)
 
 
 await client.query(`INSERT INTO 
-programs (name, description)
+workouts (name, description, exercise_id)
 VALUES
-('Strength Program', 'explanation about the program'), 
-('Muscle Building Program', 'explanation about the program')
+('A', 'Pull workout', 1), 
+('B', 'Push workout', 2)
+;`)
+
+
+
+// programs table
+await client.query(`DROP TABLE IF EXISTS programs CASCADE;`)
+
+await client.query(`CREATE TABLE programs (
+  program_id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  workout_id INTEGER,
+
+  CONSTRAINT workout_id
+  FOREIGN KEY (workout_id) 
+  REFERENCES workouts(workout_id)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
+);`)
+
+
+await client.query(`INSERT INTO 
+programs (name, description, workout_id)
+VALUES
+('Strength Program', 'explanation about the program', 1), 
+('Muscle Building Program', 'explanation about the program',2)
 ;`)
 
 
 
 // trainees table
-await client.query(`DROP TABLE IF EXISTS trainees`)
+await client.query(`DROP TABLE IF EXISTS trainees CASCADE`)
 
 await client.query(`CREATE TABLE trainees (
-  id SERIAL PRIMARY KEY,
+  trainee_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   surname VARCHAR(255) NOT NULL,
-  phone INTEGER NOT NULL,
-  email VARCHAR(255)
+  phone CHAR(15) NOT NULL,
+  email VARCHAR(255),
+  program_id INTEGER,
+
+  CONSTRAINT program_id
+  FOREIGN KEY (program_id) 
+  REFERENCES programs(program_id)
+  ON DELETE SET NULL
+  ON UPDATE CASCADE
 );`)
 
-
 await client.query(`INSERT INTO 
-trainees (name, surname, phone, email)
+trainees (name, surname, phone, email, program_id)
 VALUES
-('Lior', 'Raziel', 0545272656, 'liorazi5@gmail.com'), 
-('Noy', 'Eli', 0545111222, 'lll@gmail.com')
+('Lior', 'Raziel', 0545272656, 'liorazi5@gmail.com', 1), 
+('Noy', 'Eli', 0545111222, 'lll@gmail.com', 2)
 ;`)
 
 // const results = await client.query(`select * from programs`)

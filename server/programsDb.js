@@ -26,8 +26,27 @@ export const getAllPrograms = async()=>{
   };
   
   export const addProgram = async(body)=>{
-    const text = `INSERT INTO programs (name, description, workout_id) VALUES ($1, $2) RETURNING *;`;
-    console.log(text, [body.name, body.description, body.workout]);
-    const results = await client.query(text, [body.name, body.description, body.workout]);
+    const text = `INSERT INTO programs (name, description) VALUES ($1, $2) RETURNING *;`;
+    console.log(text, [body.name, body.description]);
+    const results = await client.query(text, [body.name, body.description]);
     return results.rows; 
   };
+  
+  export const removeProgram = async(body)=>{
+    const text = `DELETE FROM programs WHERE (name) VALUES ($1) RETURNING *;`;
+    console.log(text, [body.name]);
+    const results = await client.query(text, [body.name]);
+    return results.rows; 
+  };
+
+  export const addWorkoutToProgram = async(body)=>{
+    const text = `INSERT INTO workoutToProgram (program_id, workout_id)
+                  SELECT program_id FROM programs WHERE name VALUES ($1)
+                  SELECT workout_id FROM workouts WHERE name VALUES ($2) RETURNING *;`;
+    console.log(text, [body.program_id, body.workout_id]);
+    const results = await client.query(text, [body.program_id, body.workout_id]);
+    return results.rows; 
+  };
+
+  
+  

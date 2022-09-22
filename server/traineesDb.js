@@ -33,6 +33,26 @@ export const addTrainee = async(body)=>{
   return results.rows; 
 };
 
+// need to check it and make it with username and password
+export const removeTrainee = async(body)=>{
+  const text = `DELETE FROM trainees WHERE (name, surname, phone, email, program_id) VALUES ($1, $2, $3, $4) RETURNING *;`;
+  console.log(text, [body.name, body.surname, body.phone, body.email, body.program]);
+  const results = await client.query(text, [body.name, body.surname, body.phone, body.email, body.program]);
+  return results.rows; 
+};
+
+
+  // Todo add program to trainee by exerciseToWorkout
+  export const addProgramToTrainee = async(body)=>{
+    const text = `INSERT INTO ProgramToTrainee (trainee_id, program_id)
+                  SELECT trainee_id FROM trainees WHERE name VALUES ($1)
+                  SELECT program_id FROM programs WHERE name VALUES ($2) RETURNING *;`;
+    console.log(text, [body.trainee_id, body.program_id]);
+    const results = await client.query(text, [body.trainee_id, body.program_id]);
+    return results.rows; 
+  };
+
+
 // client.query(`select * from exercises;`, (err,res)=>{
 //         if(!err){
 //             console.log(res.rows);

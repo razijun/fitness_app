@@ -1,0 +1,21 @@
+$primaryColor:white;
+$primaryBackground:rgb(38, 222, 93);
+$secondaryBackground:green;
+
+@mixin flexCenter {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+@mixin primaryBtn {
+    color: $primaryColor;
+    background-color: $primaryBackground;
+    @include flexCenter();
+    &:hover{
+        background-color: $secondaryBackground;
+    }
+} 
+@mixin primaryInput {
+    border-radius: 30px;
+    height: 30px;
+} 

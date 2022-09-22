@@ -32,3 +32,10 @@ export const getAllExercises = async()=>{
     const results = await client.query(text, [body.name, body.area, body.description]);
     return results.rows; 
   };
+
+  export const removeExercise = async(body)=>{
+    const text = `DELETE FROM exercise WHERE (name) VALUES ($1) RETURNING *;`;
+    console.log(text, [body.name]);
+    const results = await client.query(text, [body.name]);
+    return results.rows; 
+  };

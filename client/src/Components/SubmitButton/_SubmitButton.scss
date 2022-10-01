@@ -1,0 +1,8 @@
+@import "../../Assets/VarStyle.scss";
+
+button{
+    @include primaryBtn();
+    width: 250px;
+    margin: 24px 0px 16px;
+    padding: 4px 16px;
+}

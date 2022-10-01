@@ -1,6 +1,35 @@
-@import "../../Assets/VarStyle.scss"
+@import "../../Assets/VarStyle.scss";
+
+form{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
 
 .login{
     @include flexCenter();
-    
-};
+    margin: 40px 0px 10px;
+    height: '100vh';
+}
+
+.textInput{
+    @include primaryInput();
+}
+label{
+    width: 300px;
+    justify-content: flex-start;
+    padding-top: 3px;
+}
+
+a{
+    margin: 0px 20px 0px 20px;
+    color: $secondaryBackground;
+    font-size: 12px;
+}
+
+.hrefContainer{
+    @include flexCenter();
+    flex-direction: row;
+}

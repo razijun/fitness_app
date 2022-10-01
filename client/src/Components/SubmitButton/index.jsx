@@ -1,7 +1,10 @@
 import React from "react";
+import "./_SubmitButton.scss";
 
-export function SubmitButton(){
+export function SubmitButton(props){
+    const {label="Submit"} = props;
     return(
-        <button>submit</button>
+        <button>{label}</button>
     )
 }
+

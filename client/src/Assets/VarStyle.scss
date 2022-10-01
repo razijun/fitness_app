@@ -1,21 +1,31 @@
 $primaryColor:white;
-$primaryBackground:rgb(38, 222, 93);
-$secondaryBackground:green;
+$primaryBackground:rgb(24,118,211);
+$secondaryBackground:rgb(15, 98, 182);
 
 @mixin flexCenter {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
     display: flex; 
     justify-content: center;
     align-items: center;
-}
+    flex-direction: column;
+    flex-wrap: wrap;
+};
+
 @mixin primaryBtn {
     color: $primaryColor;
     background-color: $primaryBackground;
-    @include flexCenter();
+    border-radius: 3px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     &:hover{
         background-color: $secondaryBackground;
-    }
-} 
+        cursor: pointer;
+    };
+} ;
 @mixin primaryInput {
-    border-radius: 30px;
-    height: 30px;
-} 
+    border: 1px solid black;
+    width: 250px;
+    border-radius: 2px;
+    padding: 12px 20px;
+    margin: 8px 0;
+} ;
+

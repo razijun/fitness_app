@@ -1,0 +1,51 @@
+@import "../../Assets/VarStyle.scss";
+
+form{
+    height: 100%;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.signUp{
+    @include flexCenter();
+    margin: 40px 0px 10px;
+    height: '100vh';
+}
+
+.nameInput{
+    @include primaryInput();
+}
+
+.textInput{
+    @include primaryInput();
+}
+
+.checkbox{
+    justify-content: flex-start;
+    margin: 0 5px;
+}
+
+label{
+    display: flex;
+    width: 300px;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 3px;
+}
+span{
+    font-size: small;
+    display: block;
+}
+
+a{
+    margin: 0px 20px 0px 20px;
+    color: $secondaryBackground;
+    font-size: 12px;
+}
+
+.hrefContainer{
+    @include flexCenter();
+    flex-direction: row;
+}

@@ -16,7 +16,7 @@ export function Login() {
             <label>
                 <input className="checkbox" type="checkbox" /> Remember me
             </label>
-            <SubmitButton label="Sign in"/>
+            <SubmitButton label="SIGN IN"/>
             <div className="hrefContainer">
                 <a href="http://localhost:3000/">Forgot password?</a>
                 <a href="http://localhost:3000/">Don't have an account?   Sign Up</a>

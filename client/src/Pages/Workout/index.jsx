@@ -1,16 +1,63 @@
 import React from "react";
-import "./_workout.sass";
+import "./_workout.scss";
+// import { Copyright } from "../../Components/Copyright";
+import { PresentationBlock } from '../../Components/PresentationBlock/index';
+import {NuvBar} from '../../Components/Nuv/index'
+import  powerlifting_woman  from "../../Assets/powerlifting_woman.webp";
 import { Copyright } from "../../Components/Copyright";
-import { presentationBlock } from '../../Components/PresentationBlock/index';
+
 
 
 
 export function Workout() {
     return(
     <form>
-        <div className="workout">
-        <h1>Choose today's workout</h1>
-            <presentationBlock/>
+         <NuvBar/>
+        <div className="page">
+           
+            <h1>Choose today's workout</h1>
+                <div className="workout">
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+                <PresentationBlock
+                    image = {powerlifting_woman}
+                    workoutName = "Powerlifting"
+                    description = "This workout centered around core exercises and in particular, the bench press, dead lifts and squats. "
+                />
+            </div>
         </div>
         <Copyright/>
     </form>

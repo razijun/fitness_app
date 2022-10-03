@@ -21,6 +21,17 @@ $secondaryBackground:rgb(15, 98, 182);
         cursor: pointer;
     };
 } ;
+
+@mixin smallRoundBtn{
+    border: 1.0px solid black;
+    font-size: 10px;
+    margin: 3px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+    &:hover{
+        cursor: pointer;
+    };
+}
 @mixin primaryInput {
     border: 1px solid black;
     width: 250px;

@@ -1,23 +1,22 @@
 import React from "react";
-import { SubmitButton } from "../SubmitButton";
-import "./_presentationBlock.sass";
+import "./presentation.scss";
 
-export function presentationBlock(props) {
-    const {workoutName, description} = props;
+export function PresentationBlock(props) {
+    const {workoutName, description, image} = props;
     return(
-    <form>
         <div className="presentationBlock">
-            <img src="###" alt="workout image"/>
-            <p>{workoutName}</p>
-            <div>{description}</div>
-            <div>
-                <SubmitButton label = "Start"/>
-                <SubmitButton label = "View"/>
-
+            <img className="workoutImg" src = {image} alt="workout"/>
+            <div className="descriptionContainer">
+                <h5 className="workoutName">{workoutName}</h5>
+                <div className="description">{description}</div>
+                <div className="buttonsContainer">
+                    <button className="start">Start</button>
+                    <button className="view">View</button>
+                </div>
             </div>
+            
 
         </div>
-    </form>
     )
     
 }

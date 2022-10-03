@@ -1,18 +1,24 @@
-.copyrightA{
-    font-size: 8px;
-    color: black;
-}
-
-.copyrightP{
-    color: black;
+footer{
+    position: relative;
+    height: 20px;
+    width: 100%;
+    background-color: #333333;
+    align-content: center;
+    bottom: 0%;
     display: flex; 
     justify-content: center;
     align-items: center;
-    font-size: 8px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    padding-bottom: 5px;
+    margin-top: auto;
 }
+    
+.copyrightP{
+    position: absolute;
+    color: #fff;
+    font-size: 8px;
+    padding-bottom: 3px;
+}
+.copyrightA{
+    font-size: 8px;
+    color: #fff;
+}
+

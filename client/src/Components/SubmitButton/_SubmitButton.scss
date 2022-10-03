@@ -1,6 +1,6 @@
 @import "../../Assets/VarStyle.scss";
 
-button{
+.submit{
     @include primaryBtn();
     width: 250px;
     margin: 24px 0px 16px;

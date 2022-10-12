@@ -1,18 +1,19 @@
+*{box-sizing: border-box;}
+
 footer{
-    position: relative;
-    height: 20px;
+    margin-top: auto;
+    height: 5vh;
     width: 100%;
     background-color: #333333;
     align-content: center;
-    bottom: 0%;
+    position: absolute;
+    bottom: 0;
     display: flex; 
     justify-content: center;
     align-items: center;
     margin-top: auto;
-}
     
 .copyrightP{
-    position: absolute;
     color: #fff;
     font-size: 8px;
     padding-bottom: 3px;
@@ -22,3 +23,4 @@ footer{
     color: #fff;
 }
 
+}

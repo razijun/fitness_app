@@ -1,6 +1,22 @@
 $primaryColor:white;
 $primaryBackground:rgb(24,118,211);
 $secondaryBackground:rgb(15, 98, 182);
+$mainOrange: rgb(179,89,58);
+$darkOrange:rgba(179, 88, 58, 0.58) ;
+$brightOrange:rgb(222, 70, 19);
+$mainGreen: #15ccaee3;
+$mainGrey:	rgba(200, 200, 200, 0.812);
+
+@mixin mainContainer {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    background-color: $mainGrey;
+    overflow: auto;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+}
 
 @mixin flexCenter {
     font-family: "Roboto","Helvetica","Arial",sans-serif;
@@ -23,11 +39,12 @@ $secondaryBackground:rgb(15, 98, 182);
 } ;
 
 @mixin smallRoundBtn{
-    border: 1.0px solid black;
-    font-size: 10px;
+    font-size: 12px;
+    font-weight: bold;
     margin: 3px;
     border-radius: 15px;
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+    border: 1.0px solid $darkOrange ;
     &:hover{
         cursor: pointer;
     };
@@ -39,4 +56,11 @@ $secondaryBackground:rgb(15, 98, 182);
     padding: 12px 20px;
     margin: 8px 0;
 } ;
+
+@mixin mainHeader {
+    font-weight: bold;
+    font-size: 30px;
+    color: $primaryColor;
+    text-shadow: 2px 2px 4px #000000;
+}
 

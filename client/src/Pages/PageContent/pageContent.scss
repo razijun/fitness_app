@@ -1,0 +1,5 @@
+@import "../../Assets/VarStyle.scss";
+*{box-sizing: border-box;}
+.mainContainer{
+    @include mainContainer();
+}

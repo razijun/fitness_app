@@ -1,17 +1,19 @@
 @import "../../Assets/VarStyle.scss";
 
+*{box-sizing: border-box;}
+
 form{
-    height: 100%;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
+    @include mainContainer();
+    @include flexCenter();
 }
 
-.signUp{
-    @include flexCenter();
-    margin: 40px 0px 10px;
-    height: '100vh';
+.signUp{ 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: auto;
+    margin-top: 30px;
 }
 
 .nameInput{
@@ -43,6 +45,8 @@ a{
     margin: 0px 20px 0px 20px;
     color: $secondaryBackground;
     font-size: 12px;
+    margin-bottom: 30px;
+
 }
 
 .hrefContainer{

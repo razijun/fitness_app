@@ -1,27 +1,20 @@
 @import "../../Assets/VarStyle.scss";
-
-form{
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    background-color: rgba(51, 51, 51, 0.384);
-    overflow-y: auto;
-}
+*{box-sizing: border-box;}
 
 .page{
-    @include flexCenter();
+    display: flex; 
+    margin: 40px 0;
+    align-items: center;
+    flex-direction: column;
+    .header{
+        @include mainHeader();
+        text-align: center;
+        padding: 10px;
+    }
 }
-
 .workout{
     display: flex; 
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100vw;
-    height: auto;
+    justify-content: space-evenly;
     flex-wrap: wrap;
-    justify-content: center;
-
 }
+

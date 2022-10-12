@@ -1,0 +1,47 @@
+@import "../../Assets/VarStyle.scss";
+*{box-sizing: border-box;}
+
+.homepage{
+    @include mainContainer();
+    @include flexCenter();
+    align-content: center;    
+    background-color: $mainOrange;
+    
+
+
+    .homepage_banner{
+        width: 95vw;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        align-self: center;
+
+
+    }
+    .siteDescription{
+        @include mainHeader();
+        text-align: center;
+        font-size: 20px;
+        margin: 10px 30px 10px;
+        max-width: 600px;
+    }
+    .links{
+        margin: 20px 20px 50px;
+        display: flex;
+        flex-direction: column;
+        a{
+            @include mainHeader();
+            font-size: 16px;
+            text-decoration: none;
+            @include primaryBtn();
+            padding: 10px;
+            background-color:$darkOrange ;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            &:hover{
+                background-color:$brightOrange ;
+
+            }
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@import "../../Assets/VarStyle.scss";
+*{box-sizing: border-box;}
+.noPage{
+    @include mainContainer();
+    @include flexCenter();
+    align-content: center;
+    background-color: $mainOrange;
+    .number{
+        @include mainHeader();
+        padding: 3px 5px 20px;
+        @include flexCenter();
+        font-size: 100px;
+
+    }
+    .bold{
+        @include mainHeader();
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+
+
+
+    }
+    .text{
+        @include mainHeader();
+        font-size: 14px;
+        padding: 20px;
+        text-align: center;
+    }
+    a{
+        @include mainHeader();
+        font-size: 12px;
+        text-decoration: none;
+        @include primaryBtn();
+        background-color: $darkOrange;
+        margin: 30px;
+        padding:5px;
+        &:hover{
+            background-color: $brightOrange;
+        }
+        
+    }
+}

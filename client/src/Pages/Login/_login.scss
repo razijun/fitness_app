@@ -1,35 +1,37 @@
 @import "../../Assets/VarStyle.scss";
 
-form{
-    height: 100%;
-    position: absolute;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-}
+* {box-sizing: border-box;}
 
-.login{
+form {
+    @include mainContainer();
     @include flexCenter();
-    margin: 40px 0px 10px;
-    height: '100vh';
 }
 
-.textInput{
-    @include primaryInput();
-}
-label{
-    width: 300px;
-    justify-content: flex-start;
-    padding-top: 3px;
-}
+.login {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    overflow: auto;
+    margin: 30px 0 40px;
 
-a{
-    margin: 0px 20px 0px 20px;
-    color: $secondaryBackground;
-    font-size: 12px;
-}
+    .textInput {
+        @include primaryInput();
+    }
 
-.hrefContainer{
-    @include flexCenter();
-    flex-direction: row;
+    label {
+        justify-content: center;
+        margin: 10px 0 15px;
+    }
+
+    a {
+        margin: 0px 20px 0px 20px;
+        color: $secondaryBackground;
+        font-size: 12px;
+    }
+
+    .hrefContainer {
+        @include flexCenter();
+        flex-direction: row;
+    }
 }

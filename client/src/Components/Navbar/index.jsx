@@ -1,40 +1,36 @@
 import React from "react";
-import "./Nuv.scss";
+import "./navbar.scss";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsFileRuled, BsPerson } from "react-icons/bs";
 import { BiRun } from "react-icons/bi";
+import { Outlet, Link } from "react-router-dom";
 
-export function NuvBar() {
+export function Navbar() {
   return (
-    <ul className="nuvBar">
+    <ul className="navbar">
       <li>
-        <a href="###">
-            FitLi
-        </a>
+        <Link to="/">Auto Coach</Link>
       </li>
       <li>
-        <a href="###">
+        <Link to="/">
           <AiOutlineHome />
           Home
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="###">
+        <Link to="/workout">
           <BiRun />
-          Workouts
-        </a>
+          Workout
+        </Link>
       </li>
       <li>
-        <a href="###">
-          <BsFileRuled />
-          Programs
-        </a>
-      </li>
-      <li>
-        <a href="###">
+        <Link to="/profile">
           <BsPerson />
           Profile
-        </a>
+        </Link>
+      </li>
+      <li>
+        <Link to="/">Log Out</Link>
       </li>
     </ul>
   );

@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export function SignUp() {
   return (
-    <form>
+    <form className="signUpForm">
       <div className="signUp">
         <AiFillLock color="rgb(15, 98, 182)" size="30px" />
         <h2>Sign up</h2>

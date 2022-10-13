@@ -1,0 +1,27 @@
+@import "../../Assets/VarStyle.scss";
+
+*{box-sizing: border-box;}
+@import "../../Assets/VarStyle.scss";
+*{box-sizing: border-box;}
+
+.page{
+    display: flex; 
+    margin: 40px 0;
+    align-items: center;
+    flex-direction: column;
+    
+    .header{
+        @include mainHeader();
+        text-align: center;
+        padding: 10px;
+        color: $brightOrange;
+    }
+}
+.startWorkout{
+    display: flex; 
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+}
+

@@ -2,7 +2,7 @@
 
 *{box-sizing: border-box;}
 
-form{
+.signUpForm{
     @include mainContainer();
     @include flexCenter();
 }

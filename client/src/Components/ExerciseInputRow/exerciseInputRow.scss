@@ -1,0 +1,39 @@
+@import "../../Assets/VarStyle.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.inputRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 390px;
+    max-width: 95vw;
+    padding: 5px;
+    padding-top: 0;
+    margin: 2px;
+    margin-top: 1px;
+
+    .setNum{
+        margin: 0 10px 0 0;
+    }
+    input {
+        @include primaryInput();
+        margin: 0;
+        margin-right: 10px;
+        width: 100px;
+        padding: 5px;
+        border-radius: 10px;
+        
+    }
+    button {
+        background-color: Transparent;
+        background-repeat: no-repeat;
+        border: none;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+}

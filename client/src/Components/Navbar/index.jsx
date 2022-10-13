@@ -30,7 +30,9 @@ export function Navbar() {
         </Link>
       </li>
       <li>
-        <Link to="/">Log Out</Link>
+        <Link to="/">
+          Log Out
+        </Link>
       </li>
     </ul>
   );

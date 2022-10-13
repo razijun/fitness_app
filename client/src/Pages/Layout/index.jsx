@@ -10,6 +10,9 @@ export function Layout (){
             <Link to="/homepage">HomePage</Link>
           </li>
           <li>
+            <Link to="/start">Start Workout</Link>
+          </li>
+          <li>
             <Link to="/Login">Login</Link>
           </li>
           <li>

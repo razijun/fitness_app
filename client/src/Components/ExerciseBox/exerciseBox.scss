@@ -1,0 +1,78 @@
+@import "../../Assets/VarStyle.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+.exerciseBox {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: $primaryColor;
+    text-shadow: 1px 1px 2px #000000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 10px 2px 10px;
+    width: 400px;
+    max-width: 99vw;
+    background-color: $mainOrange;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .exerciseName {
+        font-weight: bold;
+        font-size: 16px;
+        padding: 3px;
+    }
+    .inputHeaders {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 380px;
+        max-width: 95vw;
+        padding: 5px;
+        padding-left: 0;
+        margin: 2px;
+        margin-left: 1px;
+        .set{
+            margin: 0 10px 0 0;
+
+        }
+        .reps {
+            margin-right: 10px;
+            width: 100px;
+            padding: 5px;
+            border-radius: 10px;
+        }
+        .weight {
+            margin-right: 10px;
+            width: 100px;
+            padding: 7px;
+            border-radius: 10px;
+        }
+        .transparencyDiv{
+            height: 20px;
+            width: 20px;
+        }
+    }
+}
+.descriptionContainer {
+    width: 400px;
+    max-width: 99vw;
+    padding: 5px;
+    .exerciseDescription {
+        border-bottom: 1px solid $primaryColor;
+    }
+}
+
+.addSet{
+    @include smallRoundBtn();
+    background-color: $mainOrange ;
+    color: $primaryColor;
+    text-shadow: 1px 1px 1px black;
+}
+.addNote{
+    @include smallRoundBtn();
+    color: $mainOrange;
+    background-color: $primaryColor;
+    text-shadow: 1px 1px 1px black;
+}

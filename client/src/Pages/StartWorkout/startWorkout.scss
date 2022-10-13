@@ -1,8 +1,6 @@
 @import "../../Assets/VarStyle.scss";
 
 *{box-sizing: border-box;}
-@import "../../Assets/VarStyle.scss";
-*{box-sizing: border-box;}
 
 .page{
     display: flex; 
@@ -21,7 +19,6 @@
     display: flex; 
     justify-content: space-evenly;
     flex-wrap: wrap;
-    align-content: flex-start;
-
+    width: 98vw;
 }
 

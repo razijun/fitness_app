@@ -5,7 +5,6 @@ import "./exerciseBox.scss";
 export function ExerciseBox(props) {
   const { exerciseName, exerciseDescription } = props;
   return (
-    <div>
       <div className="exerciseBox">
         <div className="descriptionContainer">
           <div className="exerciseName">{exerciseName}</div>
@@ -28,6 +27,5 @@ export function ExerciseBox(props) {
             </div>
         </div>
       </div>
-    </div>
   );
 }

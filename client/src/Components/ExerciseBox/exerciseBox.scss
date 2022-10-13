@@ -63,16 +63,32 @@
         border-bottom: 1px solid $primaryColor;
     }
 }
-
+.addButtons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 390px;
+    max-width: 95vw;
+    margin-bottom: 5px;
 .addSet{
     @include smallRoundBtn();
     background-color: $mainOrange ;
     color: $primaryColor;
     text-shadow: 1px 1px 1px black;
+    padding: 5px 30px;
+    width: 130px;
+    margin-right: 5px;
+    
 }
 .addNote{
     @include smallRoundBtn();
     color: $mainOrange;
     background-color: $primaryColor;
     text-shadow: 1px 1px 1px black;
+    width: 130px;
+    padding: 5px 30px;
+    margin-left: 5px;
 }
+}
+

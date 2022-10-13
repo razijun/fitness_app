@@ -16,6 +16,8 @@
     }
 }
 .startWorkout{
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
     display: flex; 
     justify-content: space-evenly;
     flex-wrap: wrap;

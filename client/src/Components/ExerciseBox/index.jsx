@@ -21,7 +21,7 @@ export function ExerciseBox(props) {
             <ExerciseInputRow 
               setNumber = '2'
             />
-            <div>
+            <div className="addButtons">
               <button className="addSet">Add Set</button>
               <button className="addNote">Add Notes</button>
             </div>

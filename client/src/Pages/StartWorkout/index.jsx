@@ -1,5 +1,6 @@
 import React from "react";
 import { ExerciseBox } from "../../Components/ExerciseBox";
+import { Link } from "react-router-dom";
 import "./startWorkout.scss";
 
 export function StartWorkout() {
@@ -26,6 +27,8 @@ export function StartWorkout() {
                                 Do 4-sets-8-9 2 minutes rest. week 1 & 2 3-4 RIR weeks 3 & 4 0-2 RIR `}
         />
       </div>
+      <Link  className="finishBtn" to="/workout">Finish Workout</Link>
+
     </div>
   );
 }

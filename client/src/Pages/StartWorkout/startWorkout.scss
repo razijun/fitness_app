@@ -1,26 +1,36 @@
 @import "../../Assets/VarStyle.scss";
 
-*{box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
 
-.page{
-    display: flex; 
+.page {
+    display: flex;
     margin: 40px 0;
     align-items: center;
     flex-direction: column;
-    
-    .header{
+
+    .header {
         @include mainHeader();
         text-align: center;
         padding: 10px;
         color: $brightOrange;
     }
+    .finishBtn {
+        text-decoration: none;
+        @include smallRoundBtn();
+        background-color: $mainOrange;
+        color: $primaryColor;
+        text-shadow: 1px 1px 1px black;
+        padding: 15px 50px;
+        margin: 80px 30px;
+    }
 }
-.startWorkout{
+.startWorkout {
     // display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(350px, 2fr));
-    display: flex; 
+    display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     width: 98vw;
 }
-

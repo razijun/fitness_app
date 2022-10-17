@@ -5,14 +5,18 @@ import { PageContent } from "../PageContent";
 import { Layout } from "../Layout";
 import { NoPage } from "../NoPage";
 import { StartWorkout } from "../StartWorkout";
+import { Workout } from "../Workout";
 
 const routes = [
   { path: "/", element: <Layout /> },
   { path: "homepage", element: <Homepage /> },
   { path: "login", element: <Login /> },
   { path: "signup", element: <SignUp /> },
-  { path: "workout", element: <PageContent /> },
-  { path: "start", element: <StartWorkout /> },
+  { path: "workout", element: <PageContent />,
+    children:[
+      {path: "workout/select", element: <Workout/>},
+      {path: "workout/start", element: <StartWorkout />},
+    ] },
   { path: "*", element: <NoPage /> },
 
 ];

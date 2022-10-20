@@ -10,9 +10,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    margin: 5px 2px;
+    margin: 5px 0;
     width: 400px;
-    max-width: 98vw;
+    max-width: 97vw;
     background-color: $mainGrey;
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -36,14 +36,19 @@
     flex-wrap: wrap;
     height: auto;
     min-width: 200;
-    padding: 2px 4px 2px;
+    padding: 5px;
     .workoutName {
         margin: 0px 0px 2px;
-        color: $brightOrange;
+        color: $primaryColor;
+        font-size: 14px;
+        text-shadow: 1px 1px 1px $mainBlack;
+
     }
     .description {
-        font-size: small;
-        color: $mainBlack;
+        color: rgb(227, 227, 227);
+        font-size: 14px;
+        text-shadow: 1px 1px 1px $mainBlack;
+
     }
 }
 
@@ -61,14 +66,16 @@
     text-shadow: 1px 1px 1px black;
     padding: 1px 4px;
     margin: 2px 5px 1px;
+    font-size: 14px;
 }
 
 .view {
     text-decoration: none;
     @include smallRoundBtn();
-    color: $mainGrey;
-    background-color: $brightOrange;
-    text-shadow: 1px 1px 1px black;
+    color: $primaryColor;
+    background-color: $mainGrey;
     padding: 1px 4px;
     margin: 2px 5px 1px;
+    text-shadow: 1px 1px 1px black;
+    font-size: 14px;
 }

@@ -27,6 +27,9 @@ export function Layout (){
           <li>
             <Link to="/workout">Workout</Link>
           </li>
+          <li>
+            <Link to="/popup">popup</Link>
+          </li>
         </ul>
       </nav>
 

@@ -11,7 +11,8 @@ export function ExerciseInputRow(props) {
       <input type="text" placeholder="WEIGHT" name="weight" />
       <button>
         <FiXCircle
-          color="black"
+          color="lightGrey"
+          fontSize={14}
         />
       </button>
     </form>

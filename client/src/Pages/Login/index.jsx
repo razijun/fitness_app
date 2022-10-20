@@ -10,8 +10,9 @@ export function Login() {
   return (
     <form className="loginForm">
       <div className="login">
-        <AiFillLock color="purple" size="30px" />
-        <h2>Sign in</h2>
+    
+        <AiFillLock color="rgb(222, 70, 19)"  size="30px"  />
+        <div className="loginHeader">Sign in</div>
         <input className="textInput" type="text" placeholder="Email Address" />
         <input className="textInput" type="text" placeholder="Password" />
         <label>

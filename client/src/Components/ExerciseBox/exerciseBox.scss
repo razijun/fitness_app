@@ -14,9 +14,18 @@
     margin: 10px 2px 10px;
     width: 400px;
     max-width: 98vw;
-    background-color: $mainOrange;
+    background-color: $mainGrey;
     border-radius: 10px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+    .descriptionContainer {
+        width: 400px;
+        max-width: 99vw;
+        padding: 5px 10px;
+        .exerciseDescription {
+            border-bottom: 1px solid $primaryColor;
+        }
+    }
     .exerciseName {
         font-weight: bold;
         font-size: 16px;
@@ -55,14 +64,7 @@
         }
     }
 }
-.descriptionContainer {
-    width: 400px;
-    max-width: 99vw;
-    padding: 5px;
-    .exerciseDescription {
-        border-bottom: 1px solid $primaryColor;
-    }
-}
+
 .addButtons{
     display: flex;
     justify-content: center;
@@ -73,6 +75,7 @@
     margin-bottom: 5px;
 .addSet{
     @include smallRoundBtn();
+    font-size: 12px;
     background-color: $mainOrange ;
     color: $primaryColor;
     text-shadow: 1px 1px 1px black;
@@ -83,9 +86,10 @@
 }
 .addNote{
     @include smallRoundBtn();
+    font-size: 12px;
     color: $mainOrange;
     background-color: $primaryColor;
-    text-shadow: 1px 1px 1px black;
+    text-shadow: 1px 1px 1px rgb(137, 137, 137);
     width: 130px;
     padding: 5px 30px;
     margin-left: 5px;

@@ -14,9 +14,8 @@ export function Homepage() {
           alt="Homepage banner"
         />
         <div className="siteDescription">
-          Take on guided training programs that will help you to truck your
-          workouts, be consistent and most importantly enjoy the process of
-          getting stronger and fitter
+          <div> Take on guided training programs that will help you to track your workouts</div>
+          <div> be consistent and most importantly enjoy the process of getting Stronger and Fitter!</div>
         </div>
         <div>
           <div className="links">

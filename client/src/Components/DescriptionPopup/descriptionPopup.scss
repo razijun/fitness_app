@@ -1,0 +1,43 @@
+@import "../../Assets/VarStyle.scss";
+*{box-sizing: border-box;}
+
+.descriptionPopup{
+    position: absolute;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 2px;
+    width: 50vw;
+    height: 50vh;
+    max-height: 98vh;
+    max-width: 98vw;
+    background-color: $mainGrey;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // z-index: 1001;
+    .editInput{
+        @include primaryInput();
+        text-align: start;
+        margin: 0;
+        padding: 0;
+        width: 50vw;
+        height: 45vh;
+        max-height: 95vh;
+        max-width: 98vw;
+        background-color: $mainGrey;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
+        border: none;
+
+
+    }
+    .saveBtn{
+        @include primaryBtn();
+        background-color: $mainOrange;
+        color: $primaryColor;
+        border-radius: 5px;
+    }
+    }

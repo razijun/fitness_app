@@ -5,7 +5,8 @@ $mainOrange: rgb(179,89,58);
 $darkOrange:rgba(179, 88, 58, 0.58) ;
 $brightOrange:rgb(222, 70, 19);
 $mainGreen: #15ccaee3;
-$mainGrey:	rgba(200, 200, 200, 0.812);
+// $mainGrey:	rgba(90, 89, 89, 0.603);
+ $mainGrey: rgba(142, 142, 142, 0.848);
 $mainBlack: #333;
 
 
@@ -31,11 +32,11 @@ $mainBlack: #333;
 
 @mixin primaryBtn {
     color: $primaryColor;
-    background-color: $primaryBackground;
-    border-radius: 3px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    background-color: $brightOrange;
+    border-radius: 5px;
+    box-shadow: 2px 3px 3px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
     &:hover{
-        background-color: $secondaryBackground;
+        background-color: $mainOrange;
         cursor: pointer;
     };
 } ;

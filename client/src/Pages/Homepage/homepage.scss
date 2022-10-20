@@ -5,10 +5,12 @@
     @include mainContainer();
     @include flexCenter();
     align-content: center;    
-    background-color: $mainOrange;
+    justify-content: flex-start;
+    background-color: $mainGrey;
 
 
     .homepage_banner{
+        margin: 20px 0;
         width: 95vw;
         border-radius: 10px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
@@ -18,12 +20,13 @@
     .siteDescription{
         @include mainHeader();
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
         margin: 10px 30px 10px;
-        max-width: 600px;
+        max-width: 95vw;
+        color: $primaryColor;
     }
     .links{
-        margin: 20px 20px 50px;
+        margin: 30px 20px 50px;
         display: flex;
         flex-direction: column;
         a{
@@ -32,7 +35,7 @@
             text-decoration: none;
             @include primaryBtn();
             padding: 10px;
-            background-color:$darkOrange ;
+            background-color:$mainOrange ;
             border-radius: 10px;
             margin-bottom: 10px;
             text-align: center;

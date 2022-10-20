@@ -6,6 +6,7 @@ import { Layout } from "../Layout";
 import { NoPage } from "../NoPage";
 import { StartWorkout } from "../StartWorkout";
 import { Workout } from "../Workout";
+import { DescriptionPopup } from "../../Components/DescriptionPopup";
 
 const routes = [
   { path: "/", element: <Layout /> },
@@ -17,6 +18,7 @@ const routes = [
       {path: "workout/select", element: <Workout/>},
       {path: "workout/start", element: <StartWorkout />},
     ] },
+  { path: "popup", element: <DescriptionPopup/> },
   { path: "*", element: <NoPage /> },
 
 ];

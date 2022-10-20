@@ -1,55 +1,66 @@
 @import "../../Assets/VarStyle.scss";
 
-*{box-sizing: border-box;}
-
-.signUpForm{
-    @include mainContainer();
-    @include flexCenter();
+* {
+    box-sizing: border-box;
 }
 
-.signUp{ 
+.signUpForm {
+    @include mainContainer();
+    @include flexCenter();
+    background-color: lightgray;
+}
+
+.signUp {
     display: flex;
     align-items: center;
     flex-direction: column;
     position: relative;
     overflow: auto;
     margin-top: 30px;
+
+    .signUpHeader {
+        @include mainHeader();
+        margin: 30px;
+        color: $brightOrange;
+        text-shadow: 1px 1px 2px #000000;
+    }
 }
 
-.nameInput{
+.nameInput {
     @include primaryInput();
 }
 
-.textInput{
+.textInput {
     @include primaryInput();
 }
 
-.checkbox{
+.checkbox {
     justify-content: flex-start;
     margin: 0 5px;
 }
 
-label{
+label {
     display: flex;
     width: 300px;
     justify-content: flex-start;
     align-items: center;
     padding-top: 3px;
 }
-span{
+span {
     font-size: small;
     display: block;
+    color: $mainOrange;
 }
 
-a{
+a {
+    text-decoration: none;
     margin: 0px 20px 0px 20px;
-    color: $secondaryBackground;
+    color: $mainOrange;
     font-size: 12px;
     margin-bottom: 30px;
-
 }
 
-.hrefContainer{
+.hrefContainer {
     @include flexCenter();
     flex-direction: row;
 }

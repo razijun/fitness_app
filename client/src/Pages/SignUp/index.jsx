@@ -10,8 +10,8 @@ export function SignUp() {
   return (
     <form className="signUpForm">
       <div className="signUp">
-        <AiFillLock color="rgb(15, 98, 182)" size="30px" />
-        <h2>Sign up</h2>
+        <AiFillLock color="rgb(222, 70, 19)"  size="30px" />
+        <div className="signUpHeader">Sign up</div>
         <input className="nameInput" type="text" placeholder="First Name" />
         <input className="nameInput" type="text" placeholder="Last Name" />
         <input className="textInput" type="text" placeholder="Email Address" />

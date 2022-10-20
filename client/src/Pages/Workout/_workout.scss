@@ -10,13 +10,14 @@
         @include mainHeader();
         text-align: center;
         padding: 10px;
+        color: $brightOrange;
     }
 }
 .workout{
     display: flex; 
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding: 0 20px;
-    width: 98v;
+    padding: 0 7px;
+    width: 100vw;
 }
 

@@ -1,10 +1,13 @@
 @import "../../Assets/VarStyle.scss";
 
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+}
 
 .loginForm {
     @include mainContainer();
     @include flexCenter();
+    background-color: lightgray;
 }
 
 .login {
@@ -15,6 +18,13 @@
     overflow: auto;
     margin: 30px 0 40px;
 
+    .loginHeader {
+        @include mainHeader();
+        margin: 30px;
+        color: $brightOrange;
+        text-shadow: 1px 1px 2px #000000;
+    }
+
     .textInput {
         @include primaryInput();
     }
@@ -22,11 +32,13 @@
     label {
         justify-content: center;
         margin: 10px 0 15px;
+        color: $mainOrange;
     }
 
     a {
+        text-decoration: none;
         margin: 0px 20px 0px 20px;
-        color: $secondaryBackground;
+        color: $mainOrange;
         font-size: 12px;
     }
 

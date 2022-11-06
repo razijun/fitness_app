@@ -2,18 +2,26 @@ import React, { useRef, useState } from "react";
 import "./descriptionPopup.scss";
 
 //not finished, need to make it with contentEditable.
-export function DescriptionPopup() {
-        const inputRef = useRef(null);
-    function log(){
-        console.log(inputRef.current.value);
+export function DescriptionPopup(props) {
+    const { editDescription } = props;
+
+  const [exerciseDescription, setExerciseDescription] = useState(); 
+
+        // const inputRef = useRef(null); ref={inputRef}
+    function saveDescription(){
+        console.log({editDescription});
     }
 
-    
+    function handleChange(event){
+        console.log(event.target.value);
+    }
+
   return (
         <div className="descriptionPopup">
-            <div contentEditable = "true" className="editInput" ref={inputRef} type="text"  id="message"
-        name="message" >  </div>
-            <button className="saveBtn" onClick = { log} >Save changes</button>
+            <div contentEditable = "true" className="editInput"  type="text"  id="message" name="message" > 
+                {editDescription}
+             </div>
+            <button className="saveBtn" onChange={handleChange} onClick = {saveDescription} >Save changes</button>
         </div>
   );
 

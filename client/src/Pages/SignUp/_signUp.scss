@@ -24,6 +24,14 @@
         color: $brightOrange;
         text-shadow: 1px 1px 2px #000000;
     }
+
+    a {
+        text-decoration: none;
+        margin: 0px 20px 0px 20px;
+        color: $mainOrange;
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
 }
 
 .nameInput {
@@ -52,13 +60,7 @@ span {
     color: $mainOrange;
 }
 
-a {
-    text-decoration: none;
-    margin: 0px 20px 0px 20px;
-    color: $mainOrange;
-    font-size: 12px;
-    margin-bottom: 30px;
-}
+
 
 .hrefContainer {
     @include flexCenter();

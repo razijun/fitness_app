@@ -19,13 +19,13 @@ await client.query(`DROP TABLE IF EXISTS exercises CASCADE;`)
 await client.query(`CREATE TABLE exercises (
   exercise_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  area VARCHAR(255) NOT NULL,
+  muscle VARCHAR(255) NOT NULL,
   description VARCHAR(255) NOT NULL
 );`)
 
 
 await client.query(`INSERT INTO 
-exercises (name, area, description)
+exercises (name, muscle, description)
 VALUES
 ('Squat', 'Legs', 'explanation about the exercise'), 
 ('Bench', 'Chest', 'explanation about the exercise')
@@ -49,36 +49,15 @@ VALUES
 ;`)
 
 
-
-// programs table
-await client.query(`DROP TABLE IF EXISTS programs CASCADE;`)
-
-await client.query(`CREATE TABLE programs (
-  program_id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  description VARCHAR(255) NOT NULL,
-
-);`)
-
-
-await client.query(`INSERT INTO 
-programs (name, description)
-VALUES
-('Strength Program', 'explanation about the program'), 
-('Muscle Building Program', 'explanation about the program')
-;`)
-
-
-
-// trainees table
-await client.query(`DROP TABLE IF EXISTS trainees CASCADE`)
+// // trainees table
+await client.query(`DROP TABLE IF EXISTS trainees CASCADE;`)
 
 await client.query(`CREATE TABLE trainees (
   trainee_id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   surname VARCHAR(255) NOT NULL,
   phone CHAR(15) NOT NULL,
-  email VARCHAR(255),
+  email VARCHAR(255) NOT NULL
 );`)
 
 await client.query(`INSERT INTO 
@@ -105,7 +84,7 @@ await client.query(`CREATE TABLE exerciseToWorkout (
 
   CONSTRAINT workout_id
   FOREIGN KEY (workout_id) 
-  REFERENCES workout(workout_id)
+  REFERENCES workouts(workout_id)
   ON DELETE SET NULL
   ON UPDATE CASCADE
 );`)
@@ -118,42 +97,14 @@ VALUES
 (2,2)
 ;`)
 
-// workoutToProgram table  
-await client.query(`DROP TABLE IF EXISTS workoutToProgram CASCADE;`)
 
-await client.query(`CREATE TABLE workoutToProgram (
-  workoutToProgram_id SERIAL PRIMARY KEY,
-  program_id INTEGER,
-  workout_id INTEGER,
+  //  workoutToTrainee table
+await client.query(`DROP TABLE IF EXISTS workoutToTrainee CASCADE;`)
 
-  CONSTRAINT workout_id
-  FOREIGN KEY (workout_id) 
-  REFERENCES workout(workout_id)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE,
-
-  CONSTRAINT program_id
-  FOREIGN KEY (program_id) 
-  REFERENCES program(program_id)
-  ON DELETE SET NULL
-  ON UPDATE CASCADE
-);`)
-
-
-await client.query(`INSERT INTO 
-exerciseToWorkout (program_id, workout_id )
-VALUES
-(1,1),
-(2,2)
-;`)
-
-// ProgramToTrainee table  
-await client.query(`DROP TABLE IF EXISTS ProgramToTrainee CASCADE;`)
-
-await client.query(`CREATE TABLE ProgramToTrainee (
-  ProgramToTrainee_id SERIAL PRIMARY KEY,
-  program_id INTEGER,
+await client.query(`CREATE TABLE workoutToTrainee (
+  workoutToTrainee_id SERIAL PRIMARY KEY,
   trainee_id INTEGER,
+  workout_id INTEGER,
 
   CONSTRAINT trainee_id
   FOREIGN KEY (trainee_id) 
@@ -161,22 +112,103 @@ await client.query(`CREATE TABLE ProgramToTrainee (
   ON DELETE SET NULL
   ON UPDATE CASCADE,
 
-  CONSTRAINT program_id
-  FOREIGN KEY (program_id) 
-  REFERENCES programs(program_id)
+  CONSTRAINT workout_id
+  FOREIGN KEY (workout_id) 
+  REFERENCES workouts(workout_id)
   ON DELETE SET NULL
   ON UPDATE CASCADE
 );`)
 
 
 await client.query(`INSERT INTO 
-exerciseToWorkout (trainee_id, program_id)
+workoutToTrainee (trainee_id ,workout_id )
 VALUES
 (1,1),
 (2,2)
 ;`)
+}
+
+
+
+// workoutToProgram table  
+// await client.query(`DROP TABLE IF EXISTS workoutToProgram CASCADE;`)
+
+// await client.query(`CREATE TABLE workoutToProgram (
+//   workoutToProgram_id SERIAL PRIMARY KEY,
+//   program_id INTEGER,
+//   workout_id INTEGER,
+
+//   CONSTRAINT workout_id
+//   FOREIGN KEY (workout_id) 
+//   REFERENCES workout(workout_id)
+//   ON DELETE SET NULL
+//   ON UPDATE CASCADE,
+
+//   CONSTRAINT program_id
+//   FOREIGN KEY (program_id) 
+//   REFERENCES program(program_id)
+//   ON DELETE SET NULL
+//   ON UPDATE CASCADE
+// );`)
+
+
+// await client.query(`INSERT INTO 
+// exerciseToWorkout (program_id, workout_id )
+// VALUES
+// (1,1),
+// (2,2)
+// ;`)
+
+// ProgramToTrainee table  
+// await client.query(`DROP TABLE IF EXISTS ProgramToTrainee CASCADE;`)
+
+// await client.query(`CREATE TABLE ProgramToTrainee (
+//   ProgramToTrainee_id SERIAL PRIMARY KEY,
+//   program_id INTEGER,
+//   trainee_id INTEGER,
+
+//   CONSTRAINT trainee_id
+//   FOREIGN KEY (trainee_id) 
+//   REFERENCES trainees(trainee_id)
+//   ON DELETE SET NULL
+//   ON UPDATE CASCADE,
+
+//   CONSTRAINT program_id
+//   FOREIGN KEY (program_id) 
+//   REFERENCES programs(program_id)
+//   ON DELETE SET NULL
+//   ON UPDATE CASCADE
+// );`)
+
+
+// await client.query(`INSERT INTO 
+// exerciseToWorkout (trainee_id, program_id)
+// VALUES
+// (1,1),
+// (2,2)
+// ;`)
 
 
 // const results = await client.query(`select * from programs`)
 //   console.log(results.rows);
-}
+
+
+
+
+// programs table
+// await client.query(`DROP TABLE IF EXISTS programs CASCADE;`)
+
+// await client.query(`CREATE TABLE programs (
+//   program_id SERIAL PRIMARY KEY,
+//   name VARCHAR(255) NOT NULL,
+//   description VARCHAR(255) NOT NULL,
+
+// );`)
+
+
+// await client.query(`INSERT INTO 
+// programs (name, description)
+// VALUES
+// ('Strength Program', 'explanation about the program'), 
+// ('Muscle Building Program', 'explanation about the program')
+// ;`)

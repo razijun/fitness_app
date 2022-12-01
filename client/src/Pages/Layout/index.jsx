@@ -7,25 +7,19 @@ export function Layout (){
       <nav>
         <ul>
         <li>
-            <Link to="/workout/start">workouts</Link>
+            <Link to="/workout/start">workout page</Link>
           </li>
           <li>
-            <Link to="/workout/select">training</Link>
+            <Link to="/workout/select">workouts</Link>
           </li>
           <li>
             <Link to="/homepage">HomePage</Link>
-          </li>
-          <li>
-            <Link to="/start">Start Workout</Link>
           </li>
           <li>
             <Link to="/Login">Login</Link>
           </li>
           <li>
             <Link to="/SignUp">SignUp</Link>
-          </li>
-          <li>
-            <Link to="/workout">Workout</Link>
           </li>
           <li>
             <Link to="/popup">popup</Link>

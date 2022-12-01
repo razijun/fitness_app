@@ -43,15 +43,22 @@ export const removeTrainee = async(body)=>{
 
 
   // Todo add program to trainee by exerciseToWorkout
-  export const addProgramToTrainee = async(body)=>{
-    const text = `INSERT INTO ProgramToTrainee (trainee_id, program_id)
+  export const addWorkoutToTrainee = async(body)=>{
+    const text = `INSERT INTO workoutToTrainee (trainee_id, workout_id)
                   SELECT trainee_id FROM trainees WHERE name VALUES ($1)
-                  SELECT program_id FROM programs WHERE name VALUES ($2) RETURNING *;`;
-    console.log(text, [body.trainee_id, body.program_id]);
-    const results = await client.query(text, [body.trainee_id, body.program_id]);
+                  SELECT workout_id FROM workouts WHERE name VALUES ($2) RETURNING *;`;
+    console.log(text, [body.trainee_id, body.workout_id]);
+    const results = await client.query(text, [body.trainee_id, body.workout_id]);
     return results.rows; 
   };
 
+  export const updateTrainee = async(body)=>{
+    const text = `UPDATE trainees SET (name) VALUE ($1), (surname) VALUE ($2), (email) VALUE ($3), (phone) VALUE ($4), WHERE (email) VALUE ($5) RETURNING *;`;
+    console.log(text, [body.name, body.surname, body.email, body.phone ]);
+    const results = await client.query(text, [body.name, body.surname, body.email, body.phone]);
+    return results.rows; 
+  };
+ 
 
 // client.query(`select * from exercises;`, (err,res)=>{
 //         if(!err){

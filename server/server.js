@@ -4,16 +4,26 @@ import { getAllTrainees, getTraineesByName, addTrainee } from "./traineesDb.js";
 import { addExercise, getAllExercises, getExercisesByName } from "./exercisesDb.js";
 import { addProgram, getAllPrograms, getProgramByName } from "./programsDb.js";
 import { addWorkouts, getAllWorkouts, getWorkoutByName } from "./workoutsDb.js";
+const port = process.env.PORT || 3001;
 import bodyParser from "body-parser";
-import axios from "axios";
+
 
 const app = express();
+
+import cors from 'cors';
+app.use(cors());
+
 
 initDB(); 
 
 // app.use(express.static("public"));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
+
+app.post("/post_name", async (req, res) => {
+    let {name} = req.body
+    console.log(name);
+  });
 
 //app.get is a root route get method that specifies what should happened
 //when a browser gets in touch with the server:
@@ -111,6 +121,7 @@ app.post('/addProgram', async (req,res) =>{
 
 
 
+
 // axios.get('/user?ID=12345')
 //   .then(function (response) {
 //     // handle success
@@ -128,6 +139,6 @@ app.post('/addProgram', async (req,res) =>{
 //     res.send("Thank you for clicking on me!")
 // });
 
-app.listen(3000,()=>{
-    console.log("Server started on port 3000: http://localhost:3000/");
+app.listen(port,()=>{
+    console.log(`Server started on port ${port}: http://localhost:${port}/`);
 });

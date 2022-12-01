@@ -5,7 +5,6 @@ import "./descriptionPopup.scss";
 export function DescriptionPopup(props) {
     const { editDescription } = props;
 
-  const [exerciseDescription, setExerciseDescription] = useState(); 
 
         // const inputRef = useRef(null); ref={inputRef}
     function saveDescription(){

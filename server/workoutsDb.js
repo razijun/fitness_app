@@ -42,10 +42,18 @@ export const getAllWorkouts = async()=>{
   // Todo add exercises to workout by exerciseToWorkout
   export const addExerciseToWorkout = async(body)=>{
     const text = `INSERT INTO exerciseToWorkout (workout_id, exercise_id)
-                  SELECT workout_id FROM programs WHERE name VALUES ($1)
-                  SELECT exercise_id FROM workouts WHERE name VALUES ($2) RETURNING *;`;
-    console.log(text, [body.program_id, body.workout_id]);
-    const results = await client.query(text, [body.program_id, body.workout_id]);
+                  SELECT workout_id FROM workouts WHERE name VALUES ($1)
+                  SELECT exercise_id FROM exercises WHERE name VALUES ($2) RETURNING *;`;
+    console.log(text, [body.workout_id, body.exercise_id]);
+    const results = await client.query(text, [body.workout_id, body.exercise_id]);
     return results.rows; 
   };
+
+  export const updateWorkout = async(body)=>{
+    const text = `UPDATE workouts SET (name) VALUE ($1), (description) VALUE ($2), WHERE (name) VALUE ($3), RETURNING *;`;
+    console.log(text, [body.name, body.description]);
+    const results = await client.query(text, [body.name, body.description]);
+    return results.rows; 
+  };
+
   

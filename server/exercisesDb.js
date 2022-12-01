@@ -27,15 +27,22 @@ export const getAllExercises = async()=>{
   };
   
   export const addExercise = async(body)=>{
-    const text = `INSERT INTO exercises (name, area, description) VALUES ($1, $2, $3) RETURNING *;`;
-    console.log(text, [body.name, body.area, body.description]);
-    const results = await client.query(text, [body.name, body.area, body.description]);
+    const text = `INSERT INTO exercises (name, muscle, description) VALUES ($1, $2, $3) RETURNING *;`;
+    console.log(text, [body.name, body.muscle, body.description]);
+    const results = await client.query(text, [body.name, body.muscle, body.description]);
     return results.rows; 
   };
 
   export const removeExercise = async(body)=>{
-    const text = `DELETE FROM exercise WHERE (name) VALUES ($1) RETURNING *;`;
+    const text = `DELETE FROM exercises WHERE (name) VALUES ($1) RETURNING *;`;
     console.log(text, [body.name]);
     const results = await client.query(text, [body.name]);
+    return results.rows; 
+  };
+
+  export const updateExercise = async(body)=>{
+    const text = `UPDATE exercises SET (name) VALUE ($1), (muscle) VALUE ($2), (description) VALUE ($3), WHERE (name) VALUE ($4), RETURNING *;`;
+    console.log(text, [body.name, body.description]);
+    const results = await client.query(text, [body.name, body.description]);
     return results.rows; 
   };

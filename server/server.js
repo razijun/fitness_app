@@ -3,7 +3,7 @@ import { initDB } from "./initDb.js";
 import { getAllTrainees, getTraineesByName, addTrainee } from "./traineesDb.js";
 import { addExercise, getAllExercises, getExercisesByName } from "./exercisesDb.js";
 import { addWorkouts, getAllWorkouts, getWorkoutByName } from "./workoutsDb.js";
-import { getAllFullWorkouts, getWorkExByName } from "./joinReq.js";
+import { getAllTraineesData, getAllWorkoutsData, getTraineeDataByName, getWorkDataByName, insertExToWrk } from "./joinReq.js";
 
 
 const port = process.env.PORT || 3001;
@@ -101,17 +101,37 @@ app.post('/addWorkout', async (req,res) =>{
 })
 
 // ##############################
-// get all full workouts
-app.get("/getAllFullWorkouts", async (req,res)=>{
-    const workout = await getAllFullWorkouts();
+// get all workouts with all the data
+app.get("/getAllWorkoutsData", async (req,res)=>{
+    const workout = await getAllWorkoutsData();
     res.json(workout);
 })
 
-// get full workout by name
-app.get("/getWorkExByName/:name", async (req,res)=>{
+// get workout with all the data by name
+app.get("/getWorkDataByName/:name", async (req,res)=>{
     const {name} = req.params;
-    const workout = await getWorkExByName(name);
+    const workout = await getWorkDataByName(name);
     res.json(workout);
+})
+// insertExToWrk
+app.post('/insertExToWrk', async (req,res) =>{
+    const body = req.body;
+    console.log(body);
+    const exToWork = await insertExToWrk(body);
+    res.json(exToWork);
+})
+
+// get all trainees with all the data
+app.get("/getAllTraineesData", async (req,res)=>{
+    const trainees = await getAllTraineesData();
+    res.json(trainees);
+})
+
+// get trainee by name with all the data
+app.get("/getTraineeDataByName/:name", async (req,res)=>{
+    const {name} = req.params;
+    const trainees = await getTraineeDataByName(name);
+    res.json(trainees);
 })
 
 

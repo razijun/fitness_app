@@ -3,12 +3,12 @@ import { initDB } from "./initDb.js";
 import { getAllTrainees, getTraineesByName, addTrainee } from "./traineesDb.js";
 import { addExercise, getAllExercises, getExercisesByName } from "./exercisesDb.js";
 import { addWorkouts, getAllWorkouts, getWorkoutByName } from "./workoutsDb.js";
-import { getAllTraineesData, getAllWorkoutsData, getTraineeDataByName, getWorkDataByName, insertExToWrk } from "./joinReq.js";
+import { getAllTraineesData, getAllWorkoutsData, getTraineeDataByName, getWorkDataByName, insertExToWrk, insertSetToEx, insertWorkToTrainee } from "./joinReq.js";
 
 
 const port = process.env.PORT || 3001;
 
-import bodyParser from "body-parser";
+// import bodyParser, { json } from "body-parser";
 
 
 const app = express();
@@ -22,11 +22,6 @@ initDB();
 // app.use(express.static("public"));
 app.use(express.json())
 app.use(express.urlencoded({extended: true}));
-
-app.post("/post_name", async (req, res) => {
-    let {name} = req.body
-    console.log(name);
-  });
 
 //app.get is a root route get method that specifies what should happened
 //when a browser gets in touch with the server:
@@ -60,7 +55,8 @@ app.post('/addTrainee', async (req,res) =>{
 // get all exercises
 app.get("/getAllExercises", async (req,res)=>{
     const exercises = await getAllExercises();
-    res.json(exercises);
+    console.log(exercises);
+    res.status(200).json(exercises);
 })
 
 // getting exercise by name
@@ -113,13 +109,6 @@ app.get("/getWorkDataByName/:name", async (req,res)=>{
     const workout = await getWorkDataByName(name);
     res.json(workout);
 })
-// insertExToWrk
-app.post('/insertExToWrk', async (req,res) =>{
-    const body = req.body;
-    console.log(body);
-    const exToWork = await insertExToWrk(body);
-    res.json(exToWork);
-})
 
 // get all trainees with all the data
 app.get("/getAllTraineesData", async (req,res)=>{
@@ -134,6 +123,29 @@ app.get("/getTraineeDataByName/:name", async (req,res)=>{
     res.json(trainees);
 })
 
+// insertExToWrk
+app.post('/insertExToWrk', async (req,res) =>{
+    const body = req.body;
+    console.log(body);
+    const exToWork = await insertExToWrk(body);
+    res.json(exToWork);
+})
+
+// insertSetToEx
+app.post('/insertSetToEx', async (req,res) =>{
+    const body = req.body;
+    console.log(body);
+    const setToEx = await insertSetToEx(body);
+    res.json(setToEx);
+})
+
+// insertWorkToTrainee
+app.post('/insertWorkToTrainee', async (req,res) =>{
+    const body = req.body;
+    console.log(body);
+    const workToTrainee = await insertWorkToTrainee(body);
+    res.json(workToTrainee);
+})
 
 app.listen(port,()=>{
     console.log(`Server started on port ${port}: http://localhost:${port}/`);

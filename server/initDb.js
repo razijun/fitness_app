@@ -123,7 +123,7 @@ VALUES
   await client.query(`CREATE TABLE IF NOT EXISTS exerciseToWorkout (
   exerciseToWorkout_id SERIAL PRIMARY KEY,
   workout_id INTEGER,
-  setToExercise_id INTEGER,
+  exercise_id INTEGER,
 
   CONSTRAINT workout_id
   FOREIGN KEY (workout_id) 
@@ -131,15 +131,15 @@ VALUES
   ON DELETE SET NULL
   ON UPDATE CASCADE,
 
-  CONSTRAINT setToExercise_id
-  FOREIGN KEY (setToExercise_id) 
-  REFERENCES setToExercise(setToExercise_id)
+  CONSTRAINT exercise_id
+  FOREIGN KEY (exercise_id) 
+  REFERENCES exercises(exercise_id)
   ON DELETE SET NULL
   ON UPDATE CASCADE
 );`);
 
   await client.query(`INSERT INTO 
-exerciseToWorkout (workout_id, setToExercise_id)
+exerciseToWorkout (workout_id, exercise_id)
 VALUES
 (1,1),
 (1,2),
@@ -152,7 +152,7 @@ VALUES
   await client.query(`CREATE TABLE IF NOT EXISTS workoutToTrainee (
   workoutToTrainee_id SERIAL PRIMARY KEY,
   trainee_id INTEGER,
-  exerciseToWorkout_id INTEGER,
+  workout_id INTEGER,
 
   CONSTRAINT trainee_id
   FOREIGN KEY (trainee_id) 
@@ -160,15 +160,15 @@ VALUES
   ON DELETE SET NULL
   ON UPDATE CASCADE,
 
-  CONSTRAINT exerciseToWorkout_id
-  FOREIGN KEY (exerciseToWorkout_id) 
-  REFERENCES exerciseToWorkout(exerciseToWorkout_id)
+  CONSTRAINT workout_id
+  FOREIGN KEY (workout_id) 
+  REFERENCES workouts(workout_id)
   ON DELETE SET NULL
   ON UPDATE CASCADE
 );`);
 
   await client.query(`INSERT INTO 
-workoutToTrainee (trainee_id ,exerciseToWorkout_id)
+workoutToTrainee (trainee_id ,workout_id)
 VALUES
 (1,1),
 (2,2)

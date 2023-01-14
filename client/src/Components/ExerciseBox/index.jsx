@@ -1,18 +1,32 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 import { DescriptionPopup } from "../DescriptionPopup";
 import { ExerciseInputRow } from "../ExerciseInputRow";
 import "./exerciseBox.scss";
+import axios from "axios";
 
 export function ExerciseBox(props) {
-  const { exerciseName, exerciseDescription} = props;
-
-  // const [exerciseDescription, setExerciseDescription] = useState([]); 
+  const [exerciseName, setExerciseName] = useState("")
+  const [exerciseDescription, setExerciseDescription] = useState(""); 
+  const [exKey, setExKey] = useState("")
 
 
   const [popup, setPopup] = useState();
   const onEditDescription = () => {
     setPopup( <DescriptionPopup editDescription = {exerciseDescription}/>)
   };
+
+
+  useEffect(() => {
+    axios.get("http://localhost:3001/getAllExercises").then((res)=>{
+      const data = res.data
+      data.map((ex, i)=> (
+          setExKey(i),
+          setExerciseName(ex.ex_name),
+          setExerciseDescription(ex.ex_desc)
+      ))
+    })
+  }, [])
 
   const [inputOfSet, setInputOfSet] = useState([<ExerciseInputRow  />]); 
 
@@ -41,7 +55,7 @@ export function ExerciseBox(props) {
   return (
     <div className="exerciseBox">
       <div className="popup">{popup}</div>
-      <div className="descriptionContainer">
+        <div className="descriptionContainer" key={exKey}>
         <div className="exerciseName">{exerciseName}</div>
         <div className="exerciseDescription">{exerciseDescription}</div>
         <div className="inputHeaders">

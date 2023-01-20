@@ -4,38 +4,33 @@ import powerlifting_woman from "../../Assets/powerlifting_woman.webp";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-
 export function Workout() {
-  
-  const [workKey, setWorkKey] = useState("")
-  const [workoutName, setWorkoutName] = useState("")
-  const [workoutDesc, setWorkoutDesc] = useState("")
+  const [data, setData] = useState([]);
 
+ 
   useEffect(() => {
-    axios.get("http://localhost:3001/getAllWorkouts").then((res)=>{
-      const data = res.data
-      data.map((work, i)=> (
-          setWorkKey(i),
-          setWorkoutName(work.work_name),
-          setWorkoutDesc(work.work_desc)
-      ))
+     axios.get("http://localhost:3001/getAllWorkouts").then((res)=>{
+    setData(res.data);
+    console.log(res.data);
+
     })
-  }, [])
+  }, []);
+  
 
   return (
-      <div className="page">
-        <div className="header">Choose today's workout</div>
-        <div className="workout">
+    <div className="page">
+      <div className="header">Choose today's workout</div>
+      <div className="workout">
+        { data.map((option, i) => ( 
+        <PresentationBlock
+          key={i}
+          image={powerlifting_woman}
+          workoutName={option.work_name}
+          workoutDesc={option.work_desc}
+        />
 
-          <PresentationBlock
-            image={powerlifting_woman}
-            key = {workKey}
-            workoutName = {workoutName}
-            workoutDesc = {workoutDesc} 
-
-          />
-
-        </div>
+      ))}
       </div>
+    </div>
   );
 }

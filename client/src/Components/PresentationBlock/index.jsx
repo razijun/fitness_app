@@ -13,7 +13,7 @@ export function PresentationBlock(props) {
                 <h5 className="workoutName">{workoutName}</h5>
                 <div className="description">{workoutDesc}</div>
                 <div className="buttonsContainer">
-                <Link  className="start" to="/start">Start</Link>
+                <Link  className="start" to="/workout/start">Start</Link>
                 <button className="view">View</button>
                 </div>
             </div>

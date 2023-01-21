@@ -16,7 +16,7 @@ export function ExerciseInputRow(props) {
         <input type="text" placeholder="REPS" name="reps" />
         <input type="text" placeholder="WEIGHT" name="weight" />
         <button className="removeBtn" onClick={removeElement}>
-          <FiXCircle color="lightGrey" fontSize={14} />
+          <FiXCircle color="red" fontSize={14} />
         </button>
       </li>
   );

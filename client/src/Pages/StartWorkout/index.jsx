@@ -1,6 +1,5 @@
 import React, { useEffect, useState} from "react";
 import { ExerciseBox } from "../../Components/ExerciseBox";
-import { PresentationBlock } from "../../Components/PresentationBlock/index";
 import { Link, useLocation } from "react-router-dom";
 import "./startWorkout.scss";
 import axios from "axios";
@@ -9,7 +8,6 @@ import axios from "axios";
 export function StartWorkout() {
   const location = useLocation();
   const [data, setData] = useState([])
-  // const workoutName = "A"
   useEffect(() => {
      axios.get(`http://localhost:3001/getWorkDataByName/${location.state.workoutName}`).then((res)=>{
     console.log(res.data);

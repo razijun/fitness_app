@@ -48,8 +48,47 @@ export const initDB = async () => {
   await client.query(`INSERT INTO 
 exercises (ex_name, muscle, ex_desc)
 VALUES
-('Squat', 'Legs', 'explanation about the exercise'), 
-('Bench', 'Chest', 'explanation about the exercise')
+('Squat', 'Legs', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Deadlift', 'Legs', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Seated Leg Press', 'Legs', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Leg Extension', 'Legs', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Leg Curl', 'Legs', '3 sets - 8-12 reps - 90s - 120s rests'),
+
+('Bench Press', 'chest', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Incline Dumbbell Press', 'chest', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Cable Chest Flys', 'chest', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Dips', 'chest', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Pushups', 'chest', '3 sets - 8-12 reps - 90s - 120s rests'), 
+
+
+('overhead Press', 'shoulders', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Seated Dumbbell Shoulder Press', 'shoulders', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Dumbbell Shoulder Abduction', 'shoulders', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Dumbbell Shoulder Flexion', 'shoulders', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Cable Rear Delt Fly', 'shoulders', '3 sets - 8-12 reps - 90s - 120s rests'), 
+
+
+('pull-Up', 'back', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Lat Pulldown', 'back', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Seated Narrow Grip Cable Row', 'back', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Seated Wide Grip Cable Row', 'back', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Cable pullover', 'back', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('chin-up', 'back', '3 sets - 8-12 reps - 90s - 120s rests'), 
+
+
+('Incline Dumbbell Curl', 'biceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Hammer Curl', 'biceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('EZ-Bar Curl', 'biceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Cable Curl', 'biceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('EZ-Bar Reverse Curl', 'biceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Standing Dumbbell Curl', 'biceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+
+('Dumbbell Overhead Triceps Extension', 'triceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('Rope Overhead Triceps Extension', 'triceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('TRICEP V-Bar Pushdown', 'triceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('TRICEP ROPE Pushdown', 'triceps', '3 sets - 8-12 reps - 90s - 120s rests'), 
+('SKULL CRUSHERS', 'triceps', '3 sets - 8-12 reps - 90s - 120s rests')
+
 ;`);
 
   // workouts table
@@ -64,8 +103,13 @@ VALUES
   await client.query(`INSERT INTO 
 workouts (work_name, work_desc)
 VALUES
-('A', 'Pull workout'), 
-('B', 'Push workout')
+('Leg', 'Get stronger legs wider quads and juicier glutes with this great exercises'), 
+('Back', 'For a wider stronger back and healthy form we combined the best back exercises'),
+('Chest', 'In this workout we are going to push a lot in order to get this pectoralis popping'),
+('Shoulder', 'Sculpt your upper body through this shoulder strength training that can improve day to day function'),
+('Arms', 'No matter if your goal is size, strength or definition this arm exercises will help you achieve it.'),
+('Full Body', 'A great workout split for those who short in time requiring only 2 to 3 workouts per week')
+
 ;`);
 
   // // trainees table

@@ -6,6 +6,7 @@ import axios from "axios";
 
 export function Workout() {
   const [data, setData] = useState([]);
+  const [urlParam, setUrlParam] = useState("")
 
  
   useEffect(() => {
@@ -28,7 +29,6 @@ export function Workout() {
           workoutName={option.work_name}
           workoutDesc={option.work_desc}
         />
-
       ))}
       </div>
     </div>

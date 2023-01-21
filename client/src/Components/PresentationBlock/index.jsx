@@ -1,11 +1,13 @@
 import "./presentation.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function PresentationBlock(props) {
     const {image, workKey, workoutDesc, workoutName} = props;
-
- 
-
+    const navigate = useNavigate();
+    
+    const pathUrl=()=>{
+        navigate("/workout/start", {state:{workoutName: workoutName}});
+    }
     return(
         <div className="presentationBlock" key={workKey}>
             <img className="workoutImg" src = {image} alt="workout"/>
@@ -13,7 +15,7 @@ export function PresentationBlock(props) {
                 <h5 className="workoutName">{workoutName}</h5>
                 <div className="description">{workoutDesc}</div>
                 <div className="buttonsContainer">
-                <Link  className="start" to="/workout/start">Start</Link>
+                <a  className="start" onClick={()=>{pathUrl()}} >Start</a>
                 <button className="view">View</button>
                 </div>
             </div>

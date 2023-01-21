@@ -6,10 +6,10 @@ import "./exerciseBox.scss";
 import axios from "axios";
 
 export function ExerciseBox(props) {
-  const [exerciseName, setExerciseName] = useState("")
-  const [exerciseDescription, setExerciseDescription] = useState(""); 
-  const [exKey, setExKey] = useState("")
-
+  const {exKey, exerciseDescription, exerciseName} = props
+  // const [exerciseName, setExerciseName] = useState("")
+  // const [exerciseDescription, setExerciseDescription] = useState(""); 
+  // const [exKey, setExKey] = useState("");
 
   const [popup, setPopup] = useState();
   const onEditDescription = () => {
@@ -17,16 +17,16 @@ export function ExerciseBox(props) {
   };
 
 
-  useEffect(() => {
-    axios.get("http://localhost:3001/getAllExercises").then((res)=>{
-      const data = res.data
-      data.map((ex, i)=> (
-          setExKey(i),
-          setExerciseName(ex.ex_name),
-          setExerciseDescription(ex.ex_desc)
-      ))
-    })
-  }, [])
+  // useEffect(() => {
+  //   axios.get("http://localhost:3001/getAllExercises").then((res)=>{
+  //     const data = res.data
+  //     data.map((ex, i)=> (
+  //         setExKey(i),
+  //         setExerciseName(ex.ex_name),
+  //         setExerciseDescription(ex.ex_desc)
+  //     ))
+  //   })
+  // }, [])
 
   const [inputOfSet, setInputOfSet] = useState([<ExerciseInputRow  />]); 
 

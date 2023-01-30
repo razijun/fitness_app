@@ -3,30 +3,14 @@ import { useEffect } from "react";
 import { DescriptionPopup } from "../DescriptionPopup";
 import { ExerciseInputRow } from "../ExerciseInputRow";
 import "./exerciseBox.scss";
-import axios from "axios";
 
 export function ExerciseBox(props) {
   const {exKey, exerciseDescription, exerciseName} = props
-  // const [exerciseName, setExerciseName] = useState("")
-  // const [exerciseDescription, setExerciseDescription] = useState(""); 
-  // const [exKey, setExKey] = useState("");
 
   const [popup, setPopup] = useState();
   const onEditDescription = () => {
     setPopup( <DescriptionPopup editDescription = {exerciseDescription}/>)
   };
-
-
-  // useEffect(() => {
-  //   axios.get("http://localhost:3001/getAllExercises").then((res)=>{
-  //     const data = res.data
-  //     data.map((ex, i)=> (
-  //         setExKey(i),
-  //         setExerciseName(ex.ex_name),
-  //         setExerciseDescription(ex.ex_desc)
-  //     ))
-  //   })
-  // }, [])
 
   const [inputOfSet, setInputOfSet] = useState([<ExerciseInputRow  />]); 
 
@@ -49,8 +33,10 @@ export function ExerciseBox(props) {
       id = {exerciseName + idx}
       setNumber = {idx+1}
       removeElement={(()=>removeElement(idx))}
+
     />
   ))
+
 
   return (
     <div className="exerciseBox">

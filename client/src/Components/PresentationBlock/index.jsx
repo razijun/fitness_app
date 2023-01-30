@@ -1,5 +1,5 @@
 import "./presentation.scss";
-import { Link, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 
 export function PresentationBlock(props) {
     const {image, workKey, workoutDesc, workoutName} = props;
@@ -15,7 +15,7 @@ export function PresentationBlock(props) {
                 <h5 className="workoutName">{workoutName}</h5>
                 <div className="description">{workoutDesc}</div>
                 <div className="buttonsContainer">
-                <a  className="start" onClick={()=>{pathUrl()}} >Start</a>
+                <button  href="#" className="start" onClick={()=>{pathUrl()}} >Start</button>
                 <button className="view">View</button>
                 </div>
             </div>

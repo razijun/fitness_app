@@ -7,13 +7,15 @@ import axios from "axios";
 
 export function StartWorkout() {
   const location = useLocation();
+  const name = location.state.workoutName;
   const [data, setData] = useState([])
   useEffect(() => {
-     axios.get(`http://localhost:3001/getWorkDataByName/${location.state.workoutName}`).then((res)=>{
+     axios.get(`http://localhost:3001/getWorkDataByName/${name}`).then((res)=>{
     console.log(res.data);
     setData(res.data);
     })
   }, []);
+  
   
 
   return (

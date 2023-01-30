@@ -97,15 +97,28 @@ export const getAllTraineesData = async()=>{
     const text = `SELECT * FROM workouts
                   JOIN exerciseToWorkout
                   ON workouts.workout_id = exerciseToWorkout.workout_id 
-                  JOIN setToExercise
-                  ON setToExercise.exercise_id = exerciseToWorkout.exercise_id 
                   JOIN exercises
-                  ON exercises.exercise_id = setToExercise.exercise_id
-                  JOIN sets
-                  ON sets.set_id = setToExercise.set_id
+                  ON exercises.exercise_id = exerciseToWorkout.exercise_id 
                   WHERE work_name = $1
                   ;`;
     const results = await client.query(text, [name]);
     return results.rows; 
   };
 
+  // this func is like the getWorkDataByName but also bring the data about the sets
+  // export const getFinishedWorkDataByName = async(name)=>{
+  //   console.log(name);
+  //   const text = `SELECT * FROM workouts
+  //                 JOIN exerciseToWorkout
+  //                 ON workouts.workout_id = exerciseToWorkout.workout_id 
+  //                 JOIN setToExercise
+  //                 ON setToExercise.exercise_id = exerciseToWorkout.exercise_id 
+  //                 JOIN exercises
+  //                 ON exercises.exercise_id = setToExercise.exercise_id
+  //                 JOIN sets
+  //                 ON sets.set_id = setToExercise.set_id
+  //                 WHERE work_name = $1
+  //                 ;`;
+  //   const results = await client.query(text, [name]);
+  //   return results.rows; 
+  // };

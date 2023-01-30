@@ -16,10 +16,10 @@ export const getTraineesByName = async(name)=>{
 };
 
 export const addTrainee = async(body)=>{
-  const text = `INSERT INTO trainees (name, surname, phone, email, program_id) VALUES ($1, $2, $3, $4) RETURNING *;`;
-  console.log(text, [body.name, body.surname, body.phone, body.email, body.program]);
-  const results = await client.query(text, [body.name, body.surname, body.phone, body.email, body.program]);
-  return results.rows; 
+  const text = `INSERT INTO trainees (uuid, name, surname, phone, email) VALUES ($1, $2, $3, $4, $5) RETURNING *;`;
+  console.log(text, [body.uuid, body.name, body.surname, body.phone, body.email]);
+  const results = await client.query(text, [body.uuid, body.name, body.surname, body.phone, body.email]);
+  return results.rows;
 };
 
 // need to check it and make it with username and password

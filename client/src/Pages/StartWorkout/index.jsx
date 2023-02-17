@@ -30,7 +30,7 @@ export function StartWorkout() {
         ))}
 
       </div>
-      <Link  className="finishBtn" to="/workout">Finish Workout</Link>
+      <Link  className="finishBtn" to="/workout/profile" >Finish Workout</Link>
 
     </div>
   );

@@ -9,6 +9,7 @@ import { Workout } from "../Workout";
 import { StartWorkout } from "../StartWorkout";
 import { DescriptionPopup } from "../../Components/DescriptionPopup";
 import { NoPage } from "../NoPage";
+import { FinishedWorkouts } from "../FinishedWorkouts";
 
 
 export function App() {
@@ -24,6 +25,7 @@ export function App() {
              <Route  path= "workout"   element= {<PageContent/>}>
                   <Route index element= {<Workout/>}/>
                   <Route  path= "start" element= {<StartWorkout />}/>
+                  <Route  path= "profile" element= {<FinishedWorkouts />}/>
              </Route>
              <Route path= "popup" element = {<DescriptionPopup/>}/> 
              <Route path= "*" element = {<NoPage/> }/>

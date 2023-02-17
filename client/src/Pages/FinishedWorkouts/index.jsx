@@ -1,11 +1,10 @@
-import "./_workout.scss";
+import "../Workout/_workout.scss";
 import { PresentationBlock } from "../../Components/PresentationBlock/index";
 import powerlifting_woman from "../../Assets/powerlifting_woman.webp";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { v4 as uuidv4 } from 'uuid';
 
-export function Workout() {
+export function FinishedWorkouts() {
   const [data, setData] = useState([]);
  
   useEffect(() => {
@@ -14,24 +13,12 @@ export function Workout() {
     console.log(res.data);
     })
 
-    const guestId = window.localStorage.getItem('GUEST_ID');
-    if(guestId == null) {
-	    const newId = JSON.stringify(uuidv4())
-      axios.post("http://localhost:3001/addTrainee", {uuid: newId, name: 'guest'})
-      .then((res)=>{
-		  console.log(res); 
-		  window.localStorage.setItem('GUEST_ID', newId);
-      })
-      .catch((err)=>{
-        console.log(err.response);
-      })
-  };
   }, []);
   
 
   return (
     <div className="page">
-      <div className="header">Choose today's workout</div>
+      <div className="header">Track Your Progress</div>
       <div className="workout">
         { data.map((option, i) => ( 
         <PresentationBlock

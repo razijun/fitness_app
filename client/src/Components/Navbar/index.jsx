@@ -24,7 +24,7 @@ export function Navbar() {
         </Link>
       </li>
       <li>
-        <Link to="/profile">
+        <Link to="/workout/profile">
           <BsPerson />
           Profile
         </Link>

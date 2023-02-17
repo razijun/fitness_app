@@ -69,7 +69,7 @@ export const getAllTraineesData = async()=>{
                   ON exercises.exercise_id = setToExercise.exercise_id
                   JOIN sets
                   ON sets.set_id = setToExercise.set_id
-                  WHERE name = $1
+                  WHERE uuid = $1
                   ;`;
     const results = await client.query(text, [name]);
     return results.rows; 
@@ -102,6 +102,13 @@ export const getAllTraineesData = async()=>{
                   WHERE work_name = $1
                   ;`;
     const results = await client.query(text, [name]);
+    return results.rows; 
+  };
+
+  export const getSetToEx = async()=>{
+    const text = `SELECT * FROM setToExercise
+                  ;`;
+    const results = await client.query(text);
     return results.rows; 
   };
 

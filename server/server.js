@@ -3,7 +3,7 @@ import { initDB } from "./initDb.js";
 import { getAllTrainees, getTraineesByName, addTrainee } from "./traineesDb.js";
 import { addExercise, getAllExercises, getExercisesByName } from "./exercisesDb.js";
 import { addWorkouts, getAllWorkouts, getWorkoutByName } from "./workoutsDb.js";
-import { getAllTraineesData, getAllWorkoutsData, getTraineeDataByName, getWorkDataByName, insertExToWrk, insertSetToEx, insertWorkToTrainee } from "./joinReq.js";
+import { getAllTraineesData, getAllWorkoutsData, getSetToEx, getTraineeDataByName, getWorkDataByName, insertExToWrk, insertSetToEx, insertWorkToTrainee } from "./joinReq.js";
 
 
 const port = process.env.PORT || 3001;
@@ -121,6 +121,11 @@ app.get("/getTraineeDataByName/:name", async (req,res)=>{
     const {name} = req.params;
     const trainees = await getTraineeDataByName(name);
     res.json(trainees);
+})
+
+app.get("/getSetToEx", async (req,res)=>{
+    const setex = await getSetToEx();
+    res.json(setex);
 })
 
 // insertExToWrk
